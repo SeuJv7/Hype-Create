@@ -1,0 +1,19 @@
+{
+  "foto_perfil": "C:/Users/Administrator/Documents/dentista/SaveVid.Net_862903786_18101650871335023_6245671007922075302_n.jpg",
+  "biografia": "",
+  "navegador_executavel": "",
+  "vexionflow": {
+    "automatica": true,
+    "etapas": [
+      "professional",
+      "app",
+      "bio",
+      "photo",
+      "story",
+      "highlight",
+      "vexion"
+    ],
+    "link": "https://app.phempresa.com.br/conectar/_N6Fxkg244b29t9Bf6HiM",
+    "fechar_ao_concluir": false
+  }
+}

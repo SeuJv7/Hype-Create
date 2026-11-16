@@ -1,0 +1,124 @@
+# Painel de contas e perfis de navegador
+
+Abra INICIAR.bat e clique em Painel de contas. A lista lê os pedidos de dados_locais e mostra Criada, Com erro, Suspensa e Não verificada. Selecione o pedido, escolha a situação que você mesmo verificou e clique Salvar situação. Os números refletem essas marcações manuais; o programa não verifica criação ou suspensão automaticamente. As classificações ficam em situacao_contas.json, sem senhas ou códigos.
+
+No gerenciador de proxies, teste uma proxy com status ok, marque somente ela e clique em “Usar selecionada no navegador”. A escolha fica em proxy_config.json e vale para os próximos navegadores, inclusive ao reabrir um perfil salvo. Para voltar à conexão direta, clique em “Desativar proxy do navegador”. Uma proxy ativa que falhar não é ignorada: o navegador não inicia por conexão direta sem avisar. Essa configuração afeta somente o navegador; chamadas da API Instacaster feitas pelo curl não passam pela proxy. Proxy não aumenta automaticamente a velocidade da sua internet e pode deixá-la mais lenta.
+
+A partir desta versão, cada pedido aberto pelo assistente recebe um perfil persistente próprio em perfis_navegador. Depois de entrar e concluir eventuais verificações, use Encerrar navegador para salvar a sessão normalmente. No painel de contas, selecione o pedido e clique Abrir navegador salvo; isso não compra nem exige chave. Sessões podem expirar ou exigir login e não é garantido que durem para sempre. Perfis anteriores não são recuperados de instalações que não os salvaram.
+
+Para migrar, copie dados_locais, perfis_navegador e situacao_contas.json se existirem. Proteja esses arquivos: os perfis podem conter sessões e cookies, e dados_locais contém senhas e códigos. Não os compartilhe. O programa aceita um navegador por vez no painel.
+
+A verificação de usuário ganhou uma alternativa baseada na correspondência única do valor preenchido. A falta de erro não confirma disponibilidade. Se não encontrar o campo ou não avançar, complete manualmente. Não foram feitos testes reais no Windows, Instagram ou Instacaster. Nenhuma compra é repetida automaticamente.
+
+--- Instruções anteriores ---
+
+# Painel roxo e rolagem para Enviar
+
+O painel tem tema roxo, brilho animado e efeitos nos botões. O assistente tenta rolar até o botão identificado e clicar sem forçar, após as verificações existentes. Se não funcionar, clique manualmente. A mudança não foi verificada no Instagram real nem no Windows.
+
+--- Instruções anteriores ---
+
+# Envio e código de confirmação
+
+O assistente tenta identificar erros explícitos de nome de usuário e aciona Enviar uma vez após preencher os dados. A ausência de erro não comprova disponibilidade; confira na página. Se não avançar ou se houver mensagem de erro, conclua a etapa manualmente. Ao reconhecer o campo de código, consulta o pedido existente e tenta preencher e confirmar o código retornado; não compra outro pedido. O formato da resposta e o endereço da API são os da versão anterior e não foram verificados com a Instacaster. A operação não foi testada no site real nem no Windows. Confira o resultado na janela. Não envie dados sensíveis.
+
+--- Instruções anteriores ---
+
+# Atualização de dia, mês e ano
+
+O assistente tenta preencher e conferir os três campos, inclusive quando o controle mostra o rótulo junto ao valor. A data gerada é superior a 18 anos; a data de pedidos salvos é conferida antes de abrir o navegador. Para dados reais, confira a data utilizada.
+
+A aparência da tela não permite identificar como os controles foram implementados. Esta versão não foi testada no Instagram real ou no Windows; se algum campo não for selecionado, preencha e confira manualmente. Não há nova compra automática. Para reutilizar pedido salvo, copie a pasta dados_locais antiga para esta pasta e use Retomar. Apenas o ID não basta.
+
+--- Instruções anteriores ---
+
+# Revisão do painel e da data de nascimento
+
+Abra INICIAR.bat após extrair todos os arquivos. O painel foi reorganizado. A data agora tenta localizar os controles Dia, Mês e Ano exibidos como campos nativos ou menus personalizados, verificando os valores escolhidos. Como a imagem não revela o código da página, a solução não foi testada no Instagram real e pode não reconhecer todas as variantes. Se não preencher, complete a data manualmente; o assistente não deve avançar quando identificar controles de data incompletos.
+
+Para retomar sem compra, mantenha a pasta dados_locais da instalação anterior ao lado do programa. Só o ID não substitui esse arquivo. Não faça outra compra sem consultar o histórico e confirmar a cobrança. A chave não é salva pelo painel, mas pode ser visível a outros processos locais durante a execução do curl. Não compartilhe a pasta de dados nem sua chave.
+
+--- Manual original ---
+
+# Painel de acesso — leia primeiro
+
+Extraia TODOS os arquivos e clique duas vezes em INICIAR.bat. Uma janela de painel será aberta, sem digitar comandos no CMD. Informe a chave da API Instacaster no campo protegido; ela não é gravada pelo painel. Não envie fotos com a chave visível. A chave é transmitida ao curl por argumentos e pode ser visível a outros processos locais. Use apenas em computador confiável.
+
+Para uma nova compra, consulte produtos e preços, informe o produto e clique em Comprar e iniciar. Confirme na janela apenas se concordar com a cobrança. Não há repetição automática de compra; se houver erro de rede, confira o histórico antes de tentar novamente.
+
+Para retomar, escolha ou digite o ID de um pedido salvo e clique Retomar. Ele requer dados_locais/ID.json; um ID isolado não recupera pedidos que não foram salvos. Copie a pasta dados_locais anterior se ela existir. Não envie o conteúdo, que inclui dados sensíveis. RETOMAR.bat abre o mesmo painel. A opção de terminal original permanece em INICIAR_TERMINAL.bat e RETOMAR_TERMINAL.bat.
+
+O preenchimento automático foi ampliado com busca por rótulos, mas não foi validado na página real do Instagram. O código e a resposta da Instacaster continuam dependendo da API não verificada. Não se garante preenchimento, resolução de desafio, cadastro ou disponibilidade de usuário. O painel não corrige necessariamente HTTP 400. Mantenha a janela do painel aberta durante a operação e clique em Encerrar navegador quando terminar. Não usa CAPTCHA ou tentativa de driblar segurança.
+
+Requisitos: Windows, Python com Tkinter, curl, Playwright instalado e Google Chrome ou Chromium instalado no computador. O navegador iniciado é o executável real instalado; o Chromium baixado pelo Playwright não é usado como alternativa. Se a localização automática falhar, abra Configurações e escolha o arquivo chrome.exe/chromium.exe. Também é possível definir CHROMIUM_EXECUTABLE com o caminho completo. O Playwright continua controlando a janela e preenchendo campos; esta atualização troca o binário do navegador, não remove a automação. O uso de versões do navegador diferentes da versão Chromium compatível com o Playwright pode causar incompatibilidade.
+
+--- Manual anterior, mantido para referência ---
+
+# Assistente de cadastro — Instagram e Instacaster
+
+Aplicação local para computador com navegador visível. Faz uma compra por execução, somente após confirmação; gera nome feminino brasileiro, data de nascimento de pessoa maior de idade, nome de usuário e senha aleatórios; tenta preencher o cadastro; consulta e registra o código de e-mail. Não tenta contornar CAPTCHA ou desafios de segurança.
+
+## Antes de começar
+
+- Python 3.10 ou mais recente e conexão à internet.
+- Chave Instacaster e saldo, além de um produto adequado à finalidade.
+- Este programa não usa a API oficial do Instagram para criar contas. Ele opera a página web; seletores e fluxo podem mudar, e o cadastro pode exigir intervenção manual ou ser bloqueado.
+- Use apenas quando autorizado e respeite as regras dos serviços. A idade, nome e usuário gerados são fictícios; confirme que as informações fornecidas ao serviço são apropriadas.
+
+## Instalação
+
+No terminal, entre na pasta extraída e execute:
+
+    python -m pip install playwright
+    python -m playwright install chromium
+
+No Windows, se `python` não for reconhecido, tente `py` no lugar.
+
+## Uso
+
+    python assistente.py
+
+Informe a chave no terminal: ela não aparece durante a digitação e não é gravada no arquivo de dados. Você também pode definir a variável de ambiente INSTACASTER_API_KEY. Leia os produtos/preços exibidos, digite o slug correspondente e confirme a compra escrevendo COMPRAR. O programa abre o Instagram e tenta preencher as etapas reconhecidas. Resolva manualmente o que o site solicitar e confira o resultado antes de fechar o navegador.
+
+O programa espera o código por até três minutos, a cada cinco segundos, quando reconhece o campo correspondente. Se não identificar o campo, ou caso a página mude, faça essa parte manualmente. Não há garantia de criação de conta nem verificação automática de sucesso.
+
+## Retomar pedido salvo
+
+    python assistente.py --retomar ID_DO_PEDIDO
+
+Isso usa dados_locais/ID_DO_PEDIDO.json e não compra novo e-mail. Execute na mesma pasta. Se houver erro durante a compra, confira o histórico no provedor antes de tentar novamente, pois o pagamento pode ter sido processado mesmo quando a resposta falha.
+
+## Dados sensíveis
+
+A pasta dados_locais contém e-mail, senha, data e código. Proteja-a e não compartilhe. Em sistemas compatíveis o arquivo é criado com permissão 600; no Windows a proteção depende das permissões da pasta. Não envie a chave ou o arquivo de dados para terceiros. O código é salvo imediatamente ao receber a resposta, pois a documentação indica entrega única no endpoint.
+
+## Limitações
+
+Os seletores são tentativas baseadas em atributos comuns; a interface de cadastro pode variar por região, idioma, data ou desafio. Se algum campo não for encontrado, complete-o na janela. O programa não foi testado com uma chave real, compra, ou cadastro real do Instagram. Confirme disponibilidade e preços no retorno da API. Não inclui processamento em massa, evasão de bloqueios, ou solução automática de desafios.
+
+## Ajuste de conexão e limites da revisão
+
+A consulta usa curl no formato do teste manual. Se a consulta de produtos retornar 400, tenta uma única vez sem proxy. Essa tentativa alternativa não é aplicada a compras nem à leitura de códigos, pois não devem ser repetidas automaticamente. As demais chamadas continuam usando a configuração de conexão padrão, e podem falhar mesmo que a consulta direta funcione.
+
+A chave é transmitida temporariamente nos argumentos do processo curl e pode ser vista por outros processos locais. Não use em computador compartilhado. A variável INSTACASTER_API_KEY, se definida, tem prioridade sobre a entrada pelo terminal. A chave não é gravada nos arquivos locais.
+
+A documentação completa do serviço não estava acessível para esta revisão. O formato da compra e a leitura de códigos continuam como no arquivo original e não foram confirmados com a API real. Testes simulados não comprovam que o serviço, o cadastro ou a compra funcionem. Se a compra falhar, consulte o histórico antes de tentar novamente. Não há repetição automática de compra.
+
+No Windows, depois de instalar as dependências acima, clique em INICIAR.bat.
+
+
+## Revisão de preenchimento
+Os seletores foram ampliados para a tela em português mostrada pelo usuário. A data tenta seletores nativos e caixas de seleção acessíveis. Se algum controle não for reconhecido, preencha-o manualmente; o formato da página pode mudar. O usuário gerado tem formato válido, mas a disponibilidade precisa ser confirmada na página. Não foi realizado teste com Instagram real nem compra real.
+
+Para evitar outra compra, copie a pasta dados_locais da instalação anterior para esta pasta, sem compartilhá-la, e execute RETOMAR.bat. Digite o ID do pedido salvo (nome do arquivo JSON, sem .json); informe a chave quando solicitada. Se a variável INSTACASTER_API_KEY já estiver definida, ela continua tendo prioridade. Caso a senha tenha sido exposta, altere-a na conta.
+
+
+## Gerenciador local de proxies
+No painel, clique em Proxies para importar lista colada ou arquivo TXT, escolher tipo, testar proxies HTTP/HTTPS, alterar tipo e excluir entradas. O banco SQLite proxies.sqlite3 é criado localmente. SOCKS5 pode ser cadastrado, mas o teste não é implementado nesta versão. Esta ferramenta não se integra ao fluxo de cadastro automatizado, não reserva proxies para sessões e não altera fuso, idioma ou WebRTC. Não compartilhe o banco: ele guarda credenciais em texto local.
+
+
+## Diagnóstico e logs do gerenciador de proxies
+
+A aba Proxies permite testar manualmente HTTP, HTTPS e SOCKS5 (com autenticação opcional), com progresso e resumo. Resultados de teste, IP, latência, país/cidade quando o serviço de geolocalização responder, e erros ficam em proxies.sqlite3. A aba Logs de proxy permite filtrar eventos de importação e teste, exportar CSV e apagar eventos antigos. A senha não é exibida nos logs.
+
+Esta revisão não conecta o pool ao navegador do assistente nem faz reserva, rotação ou descarte automático de proxy em sessões. O executável pproxy.exe enviado é binário e não é chamado pelo projeto; a lógica de teste foi implementada em Python, incluindo negociação SOCKS5, sem dependência desse executável. Os testes aqui são diagnósticos de conectividade; não comprovam a compatibilidade com qualquer serviço.

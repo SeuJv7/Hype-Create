@@ -1,0 +1,20 @@
+# Atualização visual e rascunho de perfil
+
+Esta revisão aplica o visual monocromático minimalista escolhido (modelo B) ao painel principal e ao painel de acompanhamento. O botão Configurações guarda localmente um caminho de foto e um texto de biografia como rascunho para uso manual; não envia esses dados ao Instagram.
+
+Esta versão não acrescenta criação em massa nem abertura simultânea de navegadores. O assistente original continua com o fluxo que já existia na versão recebida.
+
+Mantenha protegidos os arquivos locais de pedidos e perfis, pois podem conter dados pessoais e sessões.
+
+
+Diagnóstico da revisão: o gerenciador de proxies não está ligado aos lançadores do navegador. `assistente.py` abre contextos persistentes diretamente em `abrir_sessao()` e `navegador()`, e o painel chama essas funções sem reservar proxy. O banco é `proxies.sqlite3` junto de `proxy_manager.py`; o logger está no módulo, mas nunca é chamado pelo fluxo do navegador. A lista de proxies e os testes manuais não implicam uso no navegador. A proxy agora pode ser selecionada manualmente no gerenciador para os dois lançadores Playwright (novo fluxo e perfil salvo). A configuração é fixa, sem rotação; exige teste com status ok e não altera as chamadas da API via curl. Isso muda a rota de rede, não torna a conexão necessariamente mais rápida.
+
+
+## Chromium instalado
+
+Os dois lançadores de navegador agora usam um Google Chrome/Chromium instalado no computador, em vez do navegador empacotado pelo Playwright. A detecção automática procura instalações comuns; se necessário, selecione o executável em Configurações ou defina CHROMIUM_EXECUTABLE. O Playwright permanece responsável pelo controle e preenchimento automático. Portanto, esta mudança não transforma o fluxo em navegação exclusivamente manual nem elimina a automação. A compatibilidade com versões de navegador diferentes da versão suportada pelo Playwright não é garantida.
+
+
+## Interface animada
+
+A interface foi redesenhada em tema escuro com acentos violetas. A faixa do cabeçalho tem movimento suave, o indicador de atividade pulsa e uma barra indeterminada aparece enquanto o programa trabalha. O mesmo tema foi aplicado ao painel principal, às configurações de perfil, ao acompanhamento de contas e ao gerenciador de proxies. As animações são apenas visuais: não alteram compras, navegação, dados ou ações nos serviços.
